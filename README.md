@@ -1,5 +1,6 @@
 # Learn ASM
 
-Following along in [Assembly Language Step-by-Step: Programming with Linux, 3rd Edition][asm-book].
+Reading [PC Assembly Language][pcasm-book] by [Paul Carter][paulcarter].
 
-[asm-book]: http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470497025.html
+[pcasm-book]: http://drpaulcarter.com/pcasm/pcasm-book-pdf.zip
+[paulcarter]: http://drpaulcarter.com/
