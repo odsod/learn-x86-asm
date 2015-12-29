@@ -19,4 +19,5 @@ Reading [Programming Intel i386 Assembly with NASM][nasm-slides] by
 
 ## Platform
 
-The stuff here runs (on a good day) in 32-bit mode on Ubuntu 14.04 x64.
+The stuff here runs (on a good day) in 32-bit mode on Ubuntu 14.04 x64
+with gcc-multilib installed.
