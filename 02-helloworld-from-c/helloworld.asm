@@ -9,7 +9,7 @@ section .data
 section .text
 
 hello_world:
-    enter 0,0
+    enter 0, 0
     pusha
 
     push hello_world_cstr ; 32 bit address
