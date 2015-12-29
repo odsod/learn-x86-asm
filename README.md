@@ -17,6 +17,12 @@ Reading [Programming Intel i386 Assembly with NASM][nasm-slides] by
 [nasm-slides]: http://issc.uj.ac.za/assembler/NASM.pdf
 [yorickhardy]: https://sites.google.com/site/yorickhardy/
 
+Looking wantonly at [Zen of Assembly Language][zen-of-asm-book] by
+[Michael Abrash][abrash].
+
+[zen-of-asm-book]: https://github.com/jagregory/abrash-zen-of-asm
+[abrash]: https://en.wikipedia.org/wiki/Michael_Abrash
+
 ## Platform
 
 The stuff here runs (on a good day) in 32-bit mode on Ubuntu 14.04 x64
