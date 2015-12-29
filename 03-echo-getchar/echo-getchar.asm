@@ -6,7 +6,7 @@ extern printf
 section .data
 
     prompt_cstr: db "Please enter a character: ", 0
-    echo_format_cstr: db "You entered: %c", 0
+    echo_format_cstr: db `You entered: %c\n`, 0
 
 section .text
 
