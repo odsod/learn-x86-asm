@@ -1,4 +1,4 @@
-# Learn ASM
+# Learn x86 ASM
 
 Reading [PC Assembly Language][pcasm-book] by [Paul Carter][paulcarter].
 
