@@ -22,7 +22,7 @@ def ask(number, number_format):
 
 
 def ask_random_nibble():
-    nibble = random.randint(1, 15)
+    nibble = random.randint(2, 15)
     format_to_show = random.choice(NUMBER_FORMATS)
     print('\n{}: {}'.format(
           format_to_show.name,
