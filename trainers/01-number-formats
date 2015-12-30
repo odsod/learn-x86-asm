@@ -13,19 +13,28 @@ NUMBER_FORMATS = [NumberFormat(name='Decimal', base=10, presentation_type='d'),
                   NumberFormat(name='Hex', base=16, presentation_type='x')]
 
 
-def ask(nibble, number_format):
+def ask(number, number_format):
     answer_str = input('{}: '.format(number_format.name))
     answer = int(answer_str, number_format.base)
-    if answer != nibble:
-        print('Wrong. ' + format(nibble, number_format.presentation_type))
+    if answer != number:
+        print('Wrong. {}'.format(
+              format(number, number_format.presentation_type)))
+
+
+def ask_random_nibble():
+    nibble = random.randint(1, 15)
+    format_to_show = random.choice(NUMBER_FORMATS)
+    print('\n{}: {}'.format(
+          format_to_show.name,
+          format(nibble, format_to_show.presentation_type)))
+    for number_format in NUMBER_FORMATS:
+        if number_format != format_to_show:
+            ask(nibble, number_format)
 
 
 if __name__ == '__main__':
-    while True:
-        random_nibble = random.randint(1, 15)
-        format_to_show = random.choice(NUMBER_FORMATS)
-        print('\n' + format_to_show.name + ': ' +
-              format(random_nibble, format_to_show.presentation_type))
-        for number_format in NUMBER_FORMATS:
-            if number_format != format_to_show:
-                ask(random_nibble, number_format)
+    try:
+        while True:
+            ask_random_nibble()
+    except KeyboardInterrupt:
+        print('\nGoodbye.')
