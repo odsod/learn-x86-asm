@@ -5,20 +5,26 @@ import collections
 
 
 NumberFormat = collections.namedtuple(
-    'NumberFormat', ['name', 'base', 'presentation_type'])
+    'NumberFormat', ['name', 'from_str', 'to_str'])
 
 
-NUMBER_FORMATS = [NumberFormat(name='Decimal', base=10, presentation_type='d'),
-                  NumberFormat(name='Binary', base=2, presentation_type='b'),
-                  NumberFormat(name='Hex', base=16, presentation_type='x')]
+NUMBER_FORMATS = [
+    NumberFormat(name='Decimal',
+                 from_str=lambda x: int(x, 10),
+                 to_str=lambda x: format(x, 'd')),
+    NumberFormat(name='Binary',
+                 from_str=lambda x: int(x, 2),
+                 to_str=lambda x: format(x, 'b')),
+    NumberFormat(name='Hex',
+                 from_str=lambda x: int(x, 16),
+                 to_str=lambda x: format(x, 'x'))]
 
 
 def ask(number, number_format):
     answer_str = input('{}: '.format(number_format.name))
-    answer = int(answer_str, number_format.base)
+    answer = number_format.from_str(answer_str)
     if answer != number:
-        print('Wrong. {}'.format(
-              format(number, number_format.presentation_type)))
+        print('Wrong. {}'.format(number_format.to_str(number)))
 
 
 def ask_random_nibble():
@@ -26,7 +32,7 @@ def ask_random_nibble():
     format_to_show = random.choice(NUMBER_FORMATS)
     print('\n{}: {}'.format(
           format_to_show.name,
-          format(nibble, format_to_show.presentation_type)))
+          format_to_show.to_str(nibble)))
     for number_format in NUMBER_FORMATS:
         if number_format != format_to_show:
             ask(nibble, number_format)
