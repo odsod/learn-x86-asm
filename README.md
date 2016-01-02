@@ -82,6 +82,31 @@ Negative numbers are 2's complement of the positive number.
 | `4`  | `04` | `00000100` | `11111011` | `11111100` | `-4`  | `fc`     |
 | `26` | `1a` | `00011010` | `11100101` | `11100110` | `-26` | `e6`     |
 
+#### Sign extension
+
+Extending a signed number means extending the sign bit to all the new high
+order bits.
+
+~~~
+2c -> 002c
+81 -> ff81
+~~~
+
+#### Arithmetic
+
+2's complement arithmetic works exactly the same as unsigned arithmetic,
+so `ADD` and `SUB` works on both signed and unsigned numbers.
+
+~~~
+  002c      44
++ ffff  +  (-1)
+------  -------
+  002b      43
+~~~
+
+Multiplication and division require specific instructions for signed
+numbers: `MUL` vs `IMUL` and `DIV` vs `IDIV`.
+
 #### 8-bit number line
 
 ~~~
@@ -415,3 +440,17 @@ Perform addition and subtraction.
 Works the same for signed and unsigned numbers.
 
 Modifies the `OF`, `SF`, `ZF`, `AF`, `PF` and `CF` flags.
+
+### MOVZX
+
+Move an 8 or 16 bit value to a larger register and set the high order
+bytes to zero.
+
+### MOVSX
+
+Move an 8 or 16 bit value to a larger register and set the high order
+bytes to the sign bit.
+
+### MUL / IMUL
+
+Do unsigned and signed multiplication.
