@@ -1,5 +1,3 @@
-; Writes "Hello, world!" to stdout
-
 global _start
 
 section .data
@@ -13,8 +11,6 @@ section .data
 section .text
 
 _start:
-    nop ; gdb breakpoint
-
     mov eax, sys_write
     mov ebx, fd_stdout
     mov ecx, hello_world_str
