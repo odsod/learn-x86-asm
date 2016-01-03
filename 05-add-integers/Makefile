@@ -1,4 +1,4 @@
-add-integers: add-integers.o main.c
+add-integers: add-integers.o
 	gcc -m32 -o $@ $^
 
 add-integers.o: add-integers.asm

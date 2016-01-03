@@ -1,4 +1,4 @@
-global add_integers
+global main
 
 extern scanf
 extern printf
@@ -16,10 +16,8 @@ section .data
 
 section .text
 
-add_integers:
+main:
     enter 0, 0
-    pusha
-    pushf
 
     push 'x'
     push prompt_format
@@ -55,7 +53,6 @@ add_integers:
     call printf
     add esp, 16
 
-    popf
-    popa
     leave
+    mov eax, 0
     ret
