@@ -1,4 +1,4 @@
-global echo_scanf
+global main
 
 extern scanf
 extern printf
@@ -15,10 +15,8 @@ section .data
 
 section .text
 
-echo_scanf:
+main:
     enter 0, 0
-    pusha
-    pushf
 
     push prompt_cstr
     call printf
@@ -34,7 +32,5 @@ echo_scanf:
     call printf
     add esp, 8
 
-    popf
-    popa
     leave
     ret
