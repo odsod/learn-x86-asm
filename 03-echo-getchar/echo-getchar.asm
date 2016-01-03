@@ -1,4 +1,4 @@
-global echo_getchar
+global main
 
 extern getchar
 extern printf
@@ -10,10 +10,8 @@ section .data
 
 section .text
 
-echo_getchar:
+main:
     enter 0, 0
-    pusha
-    pushf
 
     push prompt_cstr
     call printf
@@ -25,7 +23,5 @@ echo_getchar:
     call printf
     add esp, 8
 
-    popf
-    popa
     leave
     ret

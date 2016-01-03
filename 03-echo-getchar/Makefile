@@ -1,4 +1,4 @@
-echo-getchar: echo-getchar.o main.c
+echo-getchar: echo-getchar.o
 	gcc -m32 -o $@ $^
 
 echo-getchar.o: echo-getchar.asm
