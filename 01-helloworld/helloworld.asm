@@ -1,3 +1,5 @@
+; Print "Hello, world!" to stdout and exit
+
 global _start
 
 section .data

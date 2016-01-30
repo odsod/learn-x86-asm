@@ -1,3 +1,5 @@
+; Print each command line argument on a separate line
+
 global main
 
 extern printf

@@ -1,3 +1,5 @@
+; Read two integers from stdin and add them
+
 global main
 
 extern scanf

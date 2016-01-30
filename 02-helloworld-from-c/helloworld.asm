@@ -1,3 +1,5 @@
+; A function that prints "Hello, world" to stdout
+
 global hello_world
 
 extern printf

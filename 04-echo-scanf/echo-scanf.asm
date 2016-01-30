@@ -1,3 +1,5 @@
+; Read a string from stdin and print it
+
 global main
 
 extern scanf

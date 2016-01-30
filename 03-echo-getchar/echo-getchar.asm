@@ -1,3 +1,5 @@
+; Read a character from stdin and print it
+
 global main
 
 extern getchar
