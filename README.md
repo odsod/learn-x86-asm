@@ -454,3 +454,17 @@ bytes to the sign bit.
 ### MUL / IMUL
 
 Do unsigned and signed multiplication.
+
+## NASM
+
+### Sections or segments
+
+Relates to the different segments of an object file.
+
+| Section | Purpose                                     |
+|---------|---------------------------------------------|
+| `text`  | Program code                                |
+| `data`  | Globally accessible data                    |
+| `bss`   | Reserved memory for uninitialized variables |
+
+`bss` is originally an acronym for *Block Started by Symbol*.
