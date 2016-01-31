@@ -506,6 +506,25 @@ enter frame_size, nesting_level
 
 Nesting level is used for nested functions in higher level languages.
 
+### CMP
+
+Compare two values.
+
+Computes the difference between the left and right operand. Updates the
+`FLAGS` register accordingly.
+
+Relevant flags for unsigned comparison:
+
+* `lhs = rhs => ZF=1 CF=0`
+* `lhs > rhs => ZF=0 CF=0`
+* `lhs < rhs => ZF=0 CF=1`
+
+Relevant flags for signed comparison:
+
+* `lhs = rhs => ZF=1`
+* `lhs > rhs => ZF=0 SF=OF`
+* `lhs < rhs => ZF=0 SF!=OF`
+
 ### Sections or segments
 
 Relates to the different segments of an object file.
