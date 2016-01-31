@@ -453,9 +453,28 @@ bytes to the sign bit.
 
 ### MUL / IMUL
 
-Do unsigned and signed multiplication.
+Signed and unsigned multiplication.
 
-## NASM
+### CDQ
+
+Sign extend a dword in EAX to EDX:EAX.
+
+> CDQ must be called after setting EAX if EDX is not manually initialized
+> (as in 64/32 division) before (I)DIV.
+
+### DIV / IDIV
+
+Signed and unsigned division. Remember to sign extend EDX with CQD.
+
+### ENTER
+
+Create a stack frame.
+
+~~~
+enter frame_size, nesting_level
+~~~
+
+Nesting level is used for nested functions in higher level languages.
 
 ### Sections or segments
 
