@@ -466,6 +466,36 @@ Sign extend a dword in EAX to EDX:EAX.
 
 Signed and unsigned division. Remember to sign extend EDX with CQD.
 
+### ADC
+
+Add with carry.
+
+If the carry flag is 0, there is no difference from `add`.
+
+~~~
+operand1 = operand1 + carry_flag + operand2
+~~~
+
+~~~nasm
+add eax, ecx ; add lower 32 bits
+adc edx, ebx ; add upper 32 bits
+~~~
+
+### SBB
+
+Subtract with carry (borrow).
+
+If the carry flag is 0, there is no difference from `sub`.
+
+~~~
+operand1 = operand1 - carry flag - operand2
+~~~
+
+~~~nasm
+sub eax, ecx ; subtract lower 32 bits
+sbb edx, ebx ; subtract upper 32 bits
+~~~
+
 ### ENTER
 
 Create a stack frame.
