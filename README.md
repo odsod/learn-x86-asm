@@ -536,3 +536,10 @@ Relates to the different segments of an object file.
 | `bss`   | Reserved memory for uninitialized variables |
 
 `bss` is originally an acronym for *Block Started by Symbol*.
+
+## Program design
+
+Jumping and branching is the only actual control structure available.
+
+Write structured programs by thinking in higher level control structures,
+translating to corresponding ASM.
