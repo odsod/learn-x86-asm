@@ -506,12 +506,20 @@ enter frame_size, nesting_level
 
 Nesting level is used for nested functions in higher level languages.
 
+## Branch instructions
+
+Two types of branches: unconditional and conditional.
+
+Conditional branches use the `FLAGS` register.
+
 ### CMP
 
 Compare two values.
 
 Computes the difference between the left and right operand. Updates the
 `FLAGS` register accordingly.
+
+Does what `SUB` does and ignores the result.
 
 Relevant flags for unsigned comparison:
 
@@ -525,7 +533,39 @@ Relevant flags for signed comparison:
 * `lhs > rhs => ZF=0 SF=OF`
 * `lhs < rhs => ZF=0 SF!=OF`
 
-### Sections or segments
+### JMP
+
+Unconditional jump.
+
+There are three variations of the jump instruction:
+
+* `JMP SHORT` - encoded with a small displacement, jump at most 128 bytes
+* `JMP NEAR` - default, jump anywhere within a segment
+* `JMP FAR` - jump across segments, absolute addressing
+
+There is also an rm32 version of `JMP`. Also available for `CALL`, which
+is used for implementing function pointers.
+
+`JMP -2` is a 2-byte instruction which is equivalent to an infinite loop.
+Useful in malware analysis to inject breakpoints without attaching a
+debugger.
+
+### Conditional jumps
+
+*Less than* used when talking about unsigned numbers.
+
+*Below* used when talking about signed numbers.
+
+| State        | Signed       | Unsigned     |
+|:------------:|--------------|--------------|
+| `lhs = rhs`  | `JE`         | `JE`         |
+| `lhs != rhs` | `JNE`        | `JNE`        |
+| `lhs < rhs`  | `JL`, `JNGE` | `JB`, `JNAE` |
+| `lhs <= rhs` | `JLE`, `JNG` | `JBE`, `JNA` |
+| `lhs > rhs`  | `JG`, `JNLE` | `JA`, `JNBE` |
+| `lhs >= rhs` | `JGE`, `JNL` | `JAE`, `JNB` |
+
+## Sections or segments
 
 Relates to the different segments of an object file.
 
